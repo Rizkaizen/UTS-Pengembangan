@@ -1,6 +1,11 @@
 .git
+<<<<<<< HEAD
 .github
 .vscode
 *.log
 .DS_Store
 Thumbs.db
+=======
+.gitignore
+README.md
+>>>>>>> 2e36e86a4010f762a0b6ded2a68e90086aad458d
