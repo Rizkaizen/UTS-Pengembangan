@@ -1,0 +1,10 @@
+services:
+  taskflow:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: taskflow-uts:latest
+    container_name: taskflow-web
+    ports:
+      - "8080:80"
+    restart: unless-stopped

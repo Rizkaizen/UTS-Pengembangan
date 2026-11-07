@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TaskFlow - aplikasi pengelola tugas sederhana.">
+  <title>TaskFlow | Pengelola Tugas</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="TaskFlow beranda">
+        <span class="brand-mark">✓</span>
+        <span>TaskFlow</span>
+      </a>
+
+      <div class="sidebar-label">MENU</div>
+      <nav class="nav-menu" aria-label="Navigasi utama">
+        <a class="nav-link active" href="#dashboard"><span>▦</span> Dashboard</a>
+        <a class="nav-link" href="#tasks"><span>☷</span> Semua Tugas</a>
+        <a class="nav-link" href="#today"><span>◷</span> Hari Ini</a>
+      </nav>
+
+      <div class="sidebar-note">
+        <div class="note-icon">✦</div>
+        <strong>Kerjakan satu per satu.</strong>
+        <p>Langkah kecil yang konsisten akan membawa hasil besar.</p>
+      </div>
+
+      <div class="profile">
+        <div class="avatar">RL</div>
+        <div><strong>Pengguna</strong><small>Workspace pribadi</small></div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="current-date">WORKSPACE</p>
+          <h1>Dashboard</h1>
+        </div>
+        <div class="topbar-right">
+          <span class="status-dot"></span>
+          <span class="saved-label">Data tersimpan di perangkat</span>
+        </div>
+      </header>
+
+      <section class="welcome-card">
+        <div>
+          <p class="eyebrow light">RUANG KERJAMU</p>
+          <h2>Halo, selamat datang! <span>👋</span></h2>
+          <p>Atur prioritasmu dan selesaikan tugas dengan lebih terarah.</p>
+        </div>
+        <div class="welcome-art" aria-hidden="true">
+          <div class="art-circle">✓</div>
+          <div class="art-spark">✦</div>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Ringkasan tugas">
+        <article class="stat-card">
+          <div class="stat-top"><span>Total tugas</span><span class="stat-icon purple">☷</span></div>
+          <strong id="total-count">0</strong>
+          <small>Semua tugas yang dibuat</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span>Belum selesai</span><span class="stat-icon orange">◷</span></div>
+          <strong id="pending-count">0</strong>
+          <small>Masih perlu dikerjakan</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span>Selesai</span><span class="stat-icon green">✓</span></div>
+          <strong id="completed-count">0</strong>
+          <small>Tugas yang sudah beres</small>
+        </article>
+      </section>
+
+      <section class="task-panel" id="tasks">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">PRODUKTIVITAS</p>
+            <h2>Daftar Tugas</h2>
+          </div>
+          <span class="task-counter" id="list-counter">0 tugas</span>
+        </div>
+
+        <form id="task-form" class="task-form">
+          <label class="sr-only" for="task-input">Nama tugas</label>
+          <input id="task-input" type="text" placeholder="Contoh: Menyelesaikan laporan UTS..." maxlength="90" required>
+          <button type="submit" class="add-button">＋ Tambah Tugas</button>
+        </form>
+
+        <div class="filters" role="group" aria-label="Filter tugas">
+          <button class="filter-button active" data-filter="all" type="button">Semua</button>
+          <button class="filter-button" data-filter="pending" type="button">Belum selesai</button>
+          <button class="filter-button" data-filter="completed" type="button">Selesai</button>
+        </div>
+
+        <ul id="task-list" class="task-list" aria-live="polite"></ul>
+        <div id="empty-state" class="empty-state">
+          <div class="empty-icon">✎</div>
+          <strong>Belum ada tugas di sini</strong>
+          <p>Tambahkan tugas pertamamu menggunakan kolom di atas.</p>
+        </div>
+      </section>
+
+      <footer>TaskFlow <span>•</span> Website demo untuk latihan HTML, CSS, JavaScript, dan Docker.</footer>
+    </main>
+  </div>
+</body>
+</html>
