@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  # Kontainer 1: Web Server / Frontend (Nginx yang sudah Anda buat)
+  web:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+    networks:
+      - taskflow-net
+
+  # Kontainer 2: Backend API (Contoh layanan aplikasi Node.js/Express)
+  api:
+    image: node:18-alpine
+    working_dir: /app
+    command: sh -c "echo 'App running' && sleep infinity"
+    networks:
+      - taskflow-net
+
+  # Kontainer 3: Database / Cache (Contoh menggunakan Redis)
+  database:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - taskflow-net
+
+networks:
+  taskflow-net:
+    driver: bridge
